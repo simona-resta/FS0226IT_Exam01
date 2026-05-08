@@ -1,89 +1,433 @@
-/* Reset e Box Model (Mayer-like) */
-* {
-    margin: 0;
-    padding: 0;
+/* Reset minimale */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #2c3e50;
-    background-color: #f8f9fa;
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2b2b2b;
+    background-color: #e8eaf6; /* Sfondo viola chiaro freddo */
 }
 
+/* Stilizzazione del testo all'interno dei tag <code> */
+code {
+    font-family: 'Courier New', Courier, monospace; /* Imposta il font monospazio */
+    background-color: rgba(27, 31, 35, 0.05); /* Un leggero sfondo grigio */
+    color: #c7254e; /* Un colore rosso/bordeaux scuro */
+    padding: 0.2em 0.4em; /* Spaziatura interna */
+    border-radius: 3px; /* Angoli leggermente arrotondati */
+    font-size: 85%; /* Leggermente più piccolo del testo normale */
+}
+
+/* Header Base (Valido per tutte le pagine) */
+#site-header {
+    background-color: hsl(220, 40%, 20%);
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Medusa.png');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 80px 20px 120px;
+}
+
+#site-header h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tagline {
+    color: #ffffff;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+/* Navigazione stile Tab (Home) */
+#site-header nav {
+    margin-top: 40px;
+}
+
+#site-header nav ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+#site-header nav a {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px 18px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#site-header nav a:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-color: #f1c40f;
+}
+
+/* --- SPECIFICO PAGINA PROGETTI (Dettaglio) --- */
+
+.progetti-page #site-header {
+    /* Overlay leggermente più scuro per risaltare il tasto 'back' e immagine Medusa */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Medusa.png'); 
+    padding-bottom: 140px;
+}
+
+/* Il tab piccolino "Torna alla home" */
+.back-home-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 6px 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.back-home-tab:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-color: #f1c40f;
+}
+
+/* Main e Card */
 main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 920px;
+    margin: -70px auto 0;
+    position: relative;
+    z-index: 10;
+    padding: 0 20px 60px;
 }
 
-section {
+.progetti-page main {
+    margin-top: -80px; /* Sormonta l'header */
+}
+
+main section, .project-detailedCard {
     background-color: #ffffff;
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Titoli con Diamante Giallo */
+h2, .project-detailedCard h3 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+h2::before, .marker {
+    content: '♦';
+    color: #f1c40f;
+    margin-right: 15px;
+    font-size: 1.8rem;
+}
+
+/* Stili specifici card dettagliata */
+.project-tech {
+    font-size: 0.9rem;
+    color: #7f8c8d;
     margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
 }
 
-/* Stile Immagine */
+/* Avatar e Capolettera */
 .avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Rende l'immagine tonda */
-    margin-bottom: 15px;
-    border: 3px solid #005a8d;
+    width: 140px;
+    height: 140px;
+    border: 5px solid #f1c40f;
+    border-radius: 50%;
+    float: left;
+    margin: 0 30px 15px 0;
+    object-fit: cover;
 }
 
-/* Stile Tabella */
-.skill-table {
+#chi-sono p:first-of-type::first-letter {
+    font-size: 4rem;
+    font-weight: bold;
+    float: left;
+    margin-right: 12px;
+    line-height: 1;
+    color: #2c3e50;
+    font-family: serif;
+}
+
+/* --- BARRE COMPETENZE --- */
+.skills-container {
+    margin-top: 20px;
+}
+
+.skills-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: #2c3e50;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f1c40f;
+    margin-bottom: 20px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.skill-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.skill-info {
+    flex: 1;
+}
+
+.skill-info p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.skill-info small {
+    color: #7f8c8d;
+}
+
+.progress-container {
+    flex: 1;
+    background-color: #eee;
+    height: 12px;
+    border-radius: 10px;
+    margin-left: 30px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #f1c40f;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* --- TABELLA ESPERIENZE --- */
+table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 20px;
+    font-size: 0.95rem;
 }
 
-.skill-table th, .skill-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-}
-
-.skill-table thead {
-    background-color: #005a8d;
+table thead tr {
+    background-color: #4a3350; 
     color: white;
 }
 
-/* Stile Form */
-.contact-form p {
+table th {
+    text-align: left;
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+table td {
+    padding: 15px;
+    color: #34495e;
+    position: relative;
+}
+
+table tbody td:first-child {
+    padding-left: 25px;
+}
+
+table tbody td:first-child::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 15px;
+    height: 1px;
+    background-color: #ddd;
+}
+
+/* --- NUOVA SEZIONE PROGETTI (Home) --- */
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background-color: #f8f9fa;
+    border-left: 5px solid #2c3e50;
+    border-radius: 4px;
+    padding: 25px;
+    position: relative;
+}
+
+.project-card.alt-border {
+    border-left-color: #f1c40f;
+}
+
+.project-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 1.4rem;
+    display: block;
+}
+
+.project-card p {
+    color: #444;
+    font-size: 0.95rem;
     margin-bottom: 15px;
 }
 
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form select,
-.contact-form textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
-.contact-form button {
-    background-color: #005a8d;
-    color: white;
-    padding: 10px 20px;
+.github-link:hover {
+    text-decoration: underline;
+}
+
+.projects-footer {
+    text-align: right;
+    margin-top: 25px;
+}
+
+.projects-footer a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    border-bottom: 3px solid #f1c40f;
+    padding-bottom: 3px;
+}
+
+/* --- SEZIONE CONTATTAMI --- */
+#contatti p {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dcdde1;
+    border-radius: 4px;
+    background-color: #fdfaf5;
+    font-size: 0.95rem;
+    color: #2c3e50;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.btn-submit {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 12px 25px;
     border: none;
     border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: bold;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
 }
 
-.contact-form button:hover {
-    background-color: #003d5e;
+.btn-submit:hover {
+    background-color: #1a252f;
 }
 
-/* Footer */
+/* --- BADGE E FOOTER SITO --- */
+.badge {
+    background-color: #e74c3c;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
 #site-footer {
+    background-color: #1a252f;
+    color: #ffffff;
     text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-    color: #666;
+    padding: 40px 20px;
+}
+
+.social-icons {
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #f1c40f;
 }
