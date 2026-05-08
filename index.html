@@ -11,7 +11,6 @@
     <header id="site-header">
         <h1>Medea Euryale</h1>
         <p>Biologa Marina — Specialista in Cnidari</p>
-        
         <nav>
             <ul>
                 <li><a href="#chi-sono">Chi sono</a></li>
@@ -26,13 +25,41 @@
     <main>
         <section id="chi-sono">
             <h2>Chi sono</h2>
-            <p>Sono una biologa marina con una profonda passione per l'ecosistema marino, specializzata nello studio dei Cnidari. La mia missione è proteggere la biodiversità dei nostri oceani.</p>
+            <img src="https://placehold.co/150x150" alt="Ritratto di Medea Euryale in tenuta da ricerca" class="avatar">
+            <p>Sono una biologa marina con una profonda passione per l'ecosistema marino, specializzata nello studio dei Cnidari. La mia missione è proteggere la biodiversità dei nostri oceani attraverso la ricerca e la divulgazione scientifica.</p>
         </section>
 
         <section id="competenze">
             <h2>Competenze</h2>
-            <p>Le mie abilità tecniche e scientifiche acquisite sul campo e in laboratorio.</p>
-            </section>
+            <p>Livelli di specializzazione nelle biotecnologie e tecniche di immersione:</p>
+            
+            <table class="skill-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Tecnologia/Scienza</th>
+                        <th scope="col">Livello</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Classificazione Cnidari</td>
+                        <td>Avanzato</td>
+                    </tr>
+                    <tr>
+                        <td>Analisi campioni biologici</td>
+                        <td>Esperto</td>
+                    </tr>
+                    <tr>
+                        <td>Immersione scientifica (Nitrox)</td>
+                        <td>Avanzato</td>
+                    </tr>
+                    <tr>
+                        <td>Analisi dati in Python</td>
+                        <td>Intermedio</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
         <section id="esperienze">
             <h2>Esperienze</h2>
@@ -45,9 +72,41 @@
         </section>
 
         <section id="contatti">
-            <h2>Contatti</h2>
-            <p>Utilizza il modulo sottostante per collaborazioni o richieste di consulenza.</p>
-            </section>
+            <h2>Contattami</h2>
+            <p>Compila il modulo per collaborazioni scientifiche o spedizioni.</p>
+            
+            <form action="#" method="POST" class="contact-form">
+                <p>
+                    <label for="nome">Nome completo</label><br>
+                    <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
+                </p>
+                <p>
+                    <label for="email">Email accademica</label><br>
+                    <input type="email" id="email" name="email" placeholder="nome@universita.it" required>
+                </p>
+                <p>
+                    <label for="motivo">Motivo del contatto</label><br>
+                    <select id="motivo" name="motivo">
+                        <option value="ricerca">Progetto di Ricerca</option>
+                        <option value="spedizione">Spedizione Subacquea</option>
+                        <option value="conferenza">Invito a Conferenza</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="data">Data preferita per il meeting</label><br>
+                    <input type="date" id="data" name="data">
+                </p>
+                <p>
+                    <label for="messaggio">Messaggio</label><br>
+                    <textarea id="messaggio" name="messaggio" rows="5" placeholder="Descrivi brevemente la proposta..." required></textarea>
+                </p>
+                <p>
+                    <input type="checkbox" id="privacy" name="privacy" required>
+                    <label for="privacy">Acconsento al trattamento dei dati scientifici</label>
+                </p>
+                <button type="submit">Invia Richiesta</button>
+            </form>
+        </section>
     </main>
 
     <footer id="site-footer">
